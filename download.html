@@ -1,0 +1,71 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EduAccess</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<header>
+  <h1 id="siteTitle">EduAccess</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="downloads.html">Downloads</a>
+      <a href="lessons.html">Lessons</a>
+      <a href="quiz.html">Quiz</a>
+      <a href="dashboard.html">Teacher Dashboard</a>
+      <a href="script.js"></a>
+      <a href="login.html">loginForm</a>
+      <a href="server works.js">server</a>
+      <a href="app.js"></a>
+    <button onclick="logout()"style="margin-left:20px;">Logout</button>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Available Study Materials</h2>
+
+    <section class="content-item">
+      <h3>Sample Video Lesson</h3>
+      <video width="320" controls>
+        <source src="assets/videos/sample-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <button onclick="downloadFile('sample-video.mp4', 'video')">Download Video</button>
+    </section>
+
+    <section class="content-item">
+      <h3>Sample Notes</h3>
+      <p>This is a sample note for your studies. Click below to download and access offline.</p>
+      <button onclick="downloadFile('sample-note.txt', 'note')">Download Note</button>
+    </section>
+
+    <section class="content-item">
+      <h3>Higher Education Guide</h3>
+      <p>Learn about scholarships, universities, and courses.</p>
+      <button onclick="downloadFile('sample-note.txt', 'higher')">Download Guide</button>
+    </section>
+
+  </main>
+
+  <script src="js/app.js"></script>:
+  <script>
+  window.addEventListener('load',()=>{
+    const studentData=localStorage.getItem('studentData');
+    if(!studentData){
+        window.location.href='login.html';
+    }else{
+        const student=JSON.parse(studentData);
+        const title=document.getElementById('siteTitle');
+        title.innerText='EduAccess-${student.name}';
+       
+    }
+  });
+  function logout(){
+    localStorage.removeItem('studentData');
+    Window.location.herf='login.html';
+  }
+  </script>
+</body>
+</html>

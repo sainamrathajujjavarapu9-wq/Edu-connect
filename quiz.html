@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz - EduAccess</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Quiz / ਪ੍ਰਸ਼ਨੋਤਰੀ / प्रश्नोत्तरी</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="lessons.html">Lessons</a>
+      <a href="audio.html">Audio</a>
+      <a href="dashboard.html">Teacher Dashboard</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h2>Select Subject</h2>
+    <select id="subjectSelect" onchange="resetSubject()">
+      <option value="">-- Choose a subject --</option>
+      <option value="math">Math</option>
+      <option value="science">Science</option>
+      <option value="english">English</option>
+      <option value="social">Social Studies</option>
+      <option value="punjabi">Punjabi</option>
+    </select>
+
+    <div id="quiz"></div>
+
+    <div class="quiz-actions">
+      <button id="submitBtn" onclick="submitQuiz()">Submit</button>
+      <button id="nextLevel" style="display:none;" onclick="loadNextLevel()">Next Level</button>
+    </div>
+
+    <p id="result"></p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

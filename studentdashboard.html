@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Dashboard | EduAccess</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f8ff;
+      text-align: center;
+      padding: 20px;
+    }
+    .lang-toggle {
+      margin: 20px;
+      cursor: pointer;
+      padding: 10px 15px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="title">Welcome Student</h1>
+  <p id="progress">Your Progress: 0%</p>
+  <button class="lang-toggle" onclick="toggleLanguage()">Switch to Punjabi</button>
+
+  <script>
+    let isPunjabi = false;
+
+    function toggleLanguage() {
+      if (!isPunjabi) {
+        document.getElementById("title").innerText = "ਸੁਆਗਤ ਹੈ ਵਿਦਿਆਰਥੀ";
+        document.getElementById("progress").innerText = "ਤੁਹਾਡੀ ਤਰੱਕੀ: 0%";
+        document.querySelector(".lang-toggle").innerText = "Switch to English";
+        isPunjabi = true;
+      } else {
+        document.getElementById("title").innerText = "Welcome Student";
+        document.getElementById("progress").innerText = "Your Progress: 0%";
+        document.querySelector(".lang-toggle").innerText = "Switch to Punjabi";
+        isPunjabi = false;
+      }
+    }
+  </script>
+</body>
+</html>
+

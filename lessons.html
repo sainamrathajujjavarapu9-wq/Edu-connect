@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lessons - EduAccess</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <h1>Lessons</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="quiz.html">Quiz</a>
+        <a href="audio.html">Audio</a>
+        <a href="dashboard.html">Teacher Dashboard</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2>Available Lessons</h2>
+
+    <ul class="lesson-list">
+      <li>
+        <div class="lesson-thumb">
+          <img src="assets/thumbs/math-basics.jpg" alt="Math Basics thumbnail" onerror="this.style.display='none'">
+        </div>
+        <div class="lesson-info">
+          <strong>Math Basics</strong>
+          <div class="lesson-actions">
+            <button onclick="playVideo('math-basics.mp4')">Watch Video</button>
+            <button onclick="downloadAsset('math-basics.mp4','video')">Download</button>
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <div class="lesson-thumb">
+          <img src="assets/thumbs/english-grammar.jpg" alt="English Grammar thumbnail" onerror="this.style.display='none'">
+        </div>
+        <div class="lesson-info">
+          <strong>English Grammar</strong>
+          <div class="lesson-actions">
+            <button onclick="playVideo('english-grammar.mp4')">Watch Video</button>
+            <button onclick="downloadAsset('english-grammar.mp4','video')">Download</button>
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <div class="lesson-thumb">
+          <img src="assets/thumbs/science-experiments.jpg" alt="Science Experiments thumbnail" onerror="this.style.display='none'">
+        </div>
+        <div class="lesson-info">
+          <strong>Science Experiments</strong>
+          <div class="lesson-actions">
+            <button onclick="playVideo('science-experiments.mp4')">Watch Video</button>
+            <button onclick="downloadAsset('science-experiments.mp4','video')">Download</button>
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <div class="lesson-thumb"></div>
+        <div class="lesson-info">
+          <strong>Social Studies</strong>
+          <div class="lesson-actions">
+            <button onclick="playVideo('social-studies.mp4')">Watch Video</button>
+            <button onclick="downloadAsset('social-studies.mp4','video')">Download</button>
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <div class="lesson-thumb"></div>
+        <div class="lesson-info">
+          <strong>Hindi</strong>
+          <div class="lesson-actions">
+            <button onclick="playVideo('hindi.mp4')">Watch Video</button>
+            <button onclick="downloadAsset('hindi.mp4','video')">Download</button>
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <div class="lesson-thumb"></div>
+        <div class="lesson-info">
+          <strong>Punjabi</strong>
+          <div class="lesson-actions">
+            <button onclick="playVideo('punjabi.mp4')">Watch Video</button>
+            <button onclick="downloadAsset('punjabi.mp4','video')">Download</button>
+          </div>
+        </div>
+      </li>
+    </ul>
+
+    <div id="videoContainer" class="modal" style="display:none;">
+      <div class="modal-inner">
+        <h3 id="videoTitle">Lesson Video</h3>
+        <video id="lessonVideo" controls
+```

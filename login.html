@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduAccess Login</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #f6fbfd, #ebedee);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .login-container {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      width: 350px;
+      text-align: center;
+    }
+    h2 {
+      margin-bottom: 20px;
+      color: #49427c;
+    }
+    label {
+      display: block;
+      text-align: left;
+      margin: 8px 0 4px;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #22ffb5;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background: #b3e619;
+    }
+    #languageSwitcher {
+      margin-bottom: 15px;
+      width: 100%;
+      padding: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <h2 id="title">EduAccess Login</h2>
+
+  
+    <select id="languageSwitcher">
+      <option value="en">English</option>
+      <option value="pa">ਪੰਜਾਬੀ</option>
+    </select>
+
+    <form id="loginForm">
+      <label id="roleLabel" for="role">Login As</label>
+      <select id="role" required>
+        <option value="student">Student</option>
+        <option value="teacher">Teacher</option>
+      </select>
+
+      <label id="nameLabel" for="name">Full Name</label>
+      <input type="text" id="name" placeholder="Enter your name" required>
+
+      <label id="idLabel" for="id">ID</label>
+      <input type="text" id="id" placeholder="Enter your ID" required>
+
+      <button type="submit" id="loginBtn">Login</button>
+    </form>
+  </div>
+
+  <script>
+   
+    const translations = {
+      en: {
+        title: "EduAccess Login",
+        roleLabel: "Login As",
+        student: "Student",
+        teacher: "Teacher",
+        nameLabel: "Full Name",
+        namePlaceholder: "Enter your name",
+        idLabel: "ID",
+        idPlaceholder: "Enter your ID",
+        loginBtn: "Login"
+      },
+      pa: {
+        title: "ਐਡਯੂਐਕਸੈੱਸ ਲਾਗਇਨ",
+        roleLabel: "ਲਾਗਇਨ ਕਰੋ",
+        student: "ਵਿਦਿਆਰਥੀ",
+        teacher: "ਅਧਿਆਪਕ",
+        nameLabel: "ਪੂਰਾ ਨਾਮ",
+        namePlaceholder: "ਆਪਣਾ ਨਾਮ ਦਰਜ ਕਰੋ",
+        idLabel: "ਪਛਾਣ ਨੰਬਰ",
+        idPlaceholder: "ਆਪਣਾ ਪਛਾਣ ਨੰਬਰ ਦਰਜ ਕਰੋ",
+        loginBtn: "ਲਾਗਇਨ"
+      }
+    };
+
+    
+    document.getElementById("languageSwitcher").addEventListener("change", function() {
+      const lang = this.value;
+      document.getElementById("title").textContent = translations[lang].title;
+      document.getElementById("roleLabel").textContent = translations[lang].roleLabel;
+      document.querySelector("#role option[value='student']").textContent = translations[lang].student;
+      document.querySelector("#role option[value='teacher']").textContent = translations[lang].teacher;
+      document.getElementById("nameLabel").textContent = translations[lang].nameLabel;
+      document.getElementById("name").placeholder = translations[lang].namePlaceholder;
+      document.getElementById("idLabel").textContent = translations[lang].idLabel;
+      document.getElementById("id").placeholder = translations[lang].idPlaceholder;
+      document.getElementById("loginBtn").textContent = translations[lang].loginBtn;
+    });
+
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const role = document.getElementById("role").value;
+      const name = document.getElementById("name").value;
+      const id = document.getElementById("id").value;
+
+      localStorage.setItem("loggedInUser", JSON.stringify({ role, name, id }));
+
+      if (role === "student") {
+        let students = JSON.parse(localStorage.getItem("students")) || [];
+        let exists = students.find(s => s.id === id);
+        if (!exists) {
+          students.push({ name, id, progress: { lessons: 0, notes: 0, quizzes: 0 } });
+          localStorage.setItem("students", JSON.stringify(students));
+        }
+        window.location.href = "studentdashboard.html";
+      } else {
+        window.location.href = "teacher dashboard.html";
+      }
+    
+    });
+  </script>
+
+</body>
+</html>
