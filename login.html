@@ -1,156 +1,293 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EduAccess Login</title>
-  <link rel="stylesheet" href="css/style.css">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to right, #f6fbfd, #ebedee);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
-    .login-container {
-      background: white;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      width: 350px;
-      text-align: center;
-    }
-    h2 {
-      margin-bottom: 20px;
-      color: #49427c;
-    }
-    label {
-      display: block;
-      text-align: left;
-      margin: 8px 0 4px;
-    }
-    input, select {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-    }
-    button {
-      width: 100%;
-      padding: 12px;
-      background: #22ffb5;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    button:hover {
-      background: #b3e619;
-    }
-    #languageSwitcher {
-      margin-bottom: 15px;
-      width: 100%;
-      padding: 8px;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EduAccess Login</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+background:linear-gradient(135deg,#1565c0,#42a5f5);
+
+}
+
+.login-box{
+
+width:420px;
+background:white;
+padding:30px;
+border-radius:15px;
+box-shadow:0 10px 25px rgba(0,0,0,.3);
+
+}
+
+h1{
+
+text-align:center;
+margin-bottom:25px;
+color:#1565c0;
+
+}
+
+label{
+
+display:block;
+margin-top:15px;
+font-weight:bold;
+
+}
+
+input,select{
+
+width:100%;
+padding:12px;
+margin-top:8px;
+border:1px solid #ccc;
+border-radius:8px;
+font-size:16px;
+
+}
+
+button{
+
+width:100%;
+margin-top:25px;
+padding:14px;
+border:none;
+background:#1565c0;
+color:white;
+font-size:18px;
+border-radius:8px;
+cursor:pointer;
+
+}
+
+button:hover{
+
+background:#0d47a1;
+
+}
+
+.language{
+
+margin-top:20px;
+text-align:center;
+
+}
+
+.language button{
+
+width:auto;
+padding:10px 20px;
+margin:5px;
+
+}
+
+.error{
+
+margin-top:15px;
+color:red;
+text-align:center;
+
+}
+
+</style>
+
 </head>
+
 <body>
 
-  <div class="login-container">
-    <h2 id="title">EduAccess Login</h2>
+<div class="login-box">
 
-  
-    <select id="languageSwitcher">
-      <option value="en">English</option>
-      <option value="pa">ਪੰਜਾਬੀ</option>
-    </select>
+<h1 id="title">
 
-    <form id="loginForm">
-      <label id="roleLabel" for="role">Login As</label>
-      <select id="role" required>
-        <option value="student">Student</option>
-        <option value="teacher">Teacher</option>
-      </select>
+EduAccess Login
 
-      <label id="nameLabel" for="name">Full Name</label>
-      <input type="text" id="name" placeholder="Enter your name" required>
+</h1>
 
-      <label id="idLabel" for="id">ID</label>
-      <input type="text" id="id" placeholder="Enter your ID" required>
+<label id="roleLabel">
 
-      <button type="submit" id="loginBtn">Login</button>
-    </form>
-  </div>
+Login As
 
-  <script>
-   
-    const translations = {
-      en: {
-        title: "EduAccess Login",
-        roleLabel: "Login As",
-        student: "Student",
-        teacher: "Teacher",
-        nameLabel: "Full Name",
-        namePlaceholder: "Enter your name",
-        idLabel: "ID",
-        idPlaceholder: "Enter your ID",
-        loginBtn: "Login"
-      },
-      pa: {
-        title: "ਐਡਯੂਐਕਸੈੱਸ ਲਾਗਇਨ",
-        roleLabel: "ਲਾਗਇਨ ਕਰੋ",
-        student: "ਵਿਦਿਆਰਥੀ",
-        teacher: "ਅਧਿਆਪਕ",
-        nameLabel: "ਪੂਰਾ ਨਾਮ",
-        namePlaceholder: "ਆਪਣਾ ਨਾਮ ਦਰਜ ਕਰੋ",
-        idLabel: "ਪਛਾਣ ਨੰਬਰ",
-        idPlaceholder: "ਆਪਣਾ ਪਛਾਣ ਨੰਬਰ ਦਰਜ ਕਰੋ",
-        loginBtn: "ਲਾਗਇਨ"
-      }
-    };
+</label>
 
-    
-    document.getElementById("languageSwitcher").addEventListener("change", function() {
-      const lang = this.value;
-      document.getElementById("title").textContent = translations[lang].title;
-      document.getElementById("roleLabel").textContent = translations[lang].roleLabel;
-      document.querySelector("#role option[value='student']").textContent = translations[lang].student;
-      document.querySelector("#role option[value='teacher']").textContent = translations[lang].teacher;
-      document.getElementById("nameLabel").textContent = translations[lang].nameLabel;
-      document.getElementById("name").placeholder = translations[lang].namePlaceholder;
-      document.getElementById("idLabel").textContent = translations[lang].idLabel;
-      document.getElementById("id").placeholder = translations[lang].idPlaceholder;
-      document.getElementById("loginBtn").textContent = translations[lang].loginBtn;
-    });
+<select id="role">
 
-    document.getElementById("loginForm").addEventListener("submit", function(e) {
-      e.preventDefault();
+<option value="student">
 
-      const role = document.getElementById("role").value;
-      const name = document.getElementById("name").value;
-      const id = document.getElementById("id").value;
+Student
 
-      localStorage.setItem("loggedInUser", JSON.stringify({ role, name, id }));
+</option>
 
-      if (role === "student") {
-        let students = JSON.parse(localStorage.getItem("students")) || [];
-        let exists = students.find(s => s.id === id);
-        if (!exists) {
-          students.push({ name, id, progress: { lessons: 0, notes: 0, quizzes: 0 } });
-          localStorage.setItem("students", JSON.stringify(students));
-        }
-        window.location.href = "studentdashboard.html";
-      } else {
-        window.location.href = "teacher dashboard.html";
-      }
-    
-    });
-  </script>
+<option value="teacher">
+
+Teacher
+
+</option>
+
+</select>
+
+<label id="nameLabel">
+
+Full Name
+
+</label>
+
+<input
+type="text"
+id="name"
+placeholder="Enter your full name">
+
+<label id="idLabel">
+
+Student / Teacher ID
+
+</label>
+
+<input
+type="text"
+id="userId"
+placeholder="Enter ID">
+
+<button onclick="login()"
+id="loginBtn">
+
+Login
+
+</button>
+
+<div class="language">
+
+<button onclick="changeLanguage('en')">
+
+English
+
+</button>
+
+<button onclick="changeLanguage('pa')">
+
+ਪੰਜਾਬੀ
+
+</button>
+
+</div>
+
+<p class="error" id="error"></p>
+
+</div>
+
+<script>
+
+function login(){
+
+const role=document.getElementById("role").value;
+
+const name=document.getElementById("name").value.trim();
+
+const id=document.getElementById("userId").value.trim();
+
+if(name===""||id===""){
+
+document.getElementById("error").innerHTML=
+"Please fill all fields.";
+
+return;
+
+}
+
+const user={
+
+role:role,
+name:name,
+id:id
+
+};
+
+localStorage.setItem(
+"loggedInUser",
+JSON.stringify(user)
+);
+
+if(role==="student"){
+
+window.location.href="studentdashboard.html";
+
+}
+else{
+
+window.location.href="teacher dashbord.html";
+
+}
+
+}
+
+function changeLanguage(lang){
+
+if(lang==="pa"){
+
+document.getElementById("title").innerHTML=
+"ਐਡਯੂਐਕਸੈੱਸ ਲਾਗਇਨ";
+
+document.getElementById("roleLabel").innerHTML=
+"ਲਾਗਇਨ ਕਰੋ";
+
+document.getElementById("nameLabel").innerHTML=
+"ਪੂਰਾ ਨਾਮ";
+
+document.getElementById("idLabel").innerHTML=
+"ਆਈਡੀ";
+
+document.getElementById("loginBtn").innerHTML=
+"ਲਾਗਇਨ";
+
+document.getElementById("name").placeholder=
+"ਆਪਣਾ ਨਾਮ ਦਰਜ ਕਰੋ";
+
+document.getElementById("userId").placeholder=
+"ਆਪਣੀ ਆਈਡੀ ਦਰਜ ਕਰੋ";
+
+}
+else{
+
+document.getElementById("title").innerHTML=
+"EduAccess Login";
+
+document.getElementById("roleLabel").innerHTML=
+"Login As";
+
+document.getElementById("nameLabel").innerHTML=
+"Full Name";
+
+document.getElementById("idLabel").innerHTML=
+"Student / Teacher ID";
+
+document.getElementById("loginBtn").innerHTML=
+"Login";
+
+document.getElementById("name").placeholder=
+"Enter your full name";
+
+document.getElementById("userId").placeholder=
+"Enter ID";
+
+}
+
+}
+
+</script>
 
 </body>
 </html>
