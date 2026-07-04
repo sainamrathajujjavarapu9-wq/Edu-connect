@@ -1,75 +1,242 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EduAccess — Home</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#007bff">
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>EduAccess Home</title>
+
+<link rel="stylesheet" href="style.css">
 
 </head>
+
 <body>
-  <header class=" site-header ">
-    <div class=" header-inner ">
-      <h1 id=" siteTitle ">  EduAccess</h1>
-      <nav>
-        <a href= "login.html" >  Login</a>  
-        <a href=  " quiz.html " >  Quiz  </a>
-        <a href= " audio.html " >  Audio </a>
-        <a href="video.html ">video</a>
-        <a href="lessons.html">Lessons</a>
-        <a href= "teacher dashbord.html" >Teacher Dashboard  </a>
-        <a href="studentdashboard.html">Student Dashboard</a>
-        <a href= " download.html " > Downloads</a>
-      </nav>
-    </div>
-  </header>
 
-  <main class=" container">
-    <!-- Hero Section -->
-    <section class="hero card">
-      <h2>Welcome, students!</h2> 
-      <p>Learn anywhere, anytime — available in multiple local languages.</p>
-      <div class="cta-row">
-        <a class="btn" href=" lessons.html">Start Lessons</a>
-        <a class="btn btn-outline" href="quiz.html">Take a Quiz</a>
-      </div>
-    </section>
+<header>
 
-    <!-- Features as Boxes -->
-    <section class="features grid">
-      <article class="card">
-        <h3>📹 Video Lessons</h3>
-        <p>Short, clear animated videos with captions.</p>
-        <a class= "btn-small"  href="lessons.html ">  Watch Now</a>
+<div class="logo">
 
-      </article>
-      <article class="card">
-        <h3>🎧 Audio Lessons</h3>
-        <p>Downloadable audio for low-bandwidth learning.</p>
-        <a class= "btn-small" href="audio.html">  Listen Now</a>
-      </article>
-      <article class="card">
-        <h3>📊 Progress & Offline</h3>
-        <p>Save resources for offline access and track progress.</p>
-        <a class="btn-small" href="dashboard.html">View Progress</a>
-      </article>
-      <article class="card">
-        <h3>⬇️ Downloads</h3>
-        <p>Get resources for offline use anytime.</p>
-        <a class="btn-small" href="download.html">Download</a>
-      </article>
-    </section>
-  </main>
+📚 EduAccess
 
-  <script src="app.js"></script>
-  <script>
-  if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("service-worker.js")
-      .then(() => console.log("Service Worker Registered"));
-  }
+</div>
+
+<nav>
+
+<a href="index.html">Home</a>
+
+<a href="lessons.html">Lessons</a>
+
+<a href="quiz.html">Quiz</a>
+
+<a href="video.html">Videos</a>
+
+<a href="audio.html">Audio</a>
+
+<a href="download.html">Downloads</a>
+
+<a href="studentdashboard.html">Dashboard</a>
+
+<a href="teacher dashbord.html">Teacher</a>
+
+<a href="#" onclick="logout()">Logout</a>
+
+</nav>
+
+</header>
+
+<section class="hero">
+
+<h1>
+
+Welcome to EduAccess
+
+</h1>
+
+<p>
+
+Making quality education available for everyone through videos,
+audio lessons, quizzes and downloadable study materials.
+
+</p>
+
+<a href="lessons.html" class="btn">
+
+Start Learning
+
+</a>
+
+</section>
+
+<section class="cards">
+
+<div class="card">
+
+<h2>
+
+📚 Lessons
+
+</h2>
+
+<p>
+
+Learn chapter-wise lessons.
+
+</p>
+
+<a href="lessons.html">
+
+Open
+
+</a>
+
+</div>
+
+<div class="card">
+
+<h2>
+
+📝 Quiz
+
+</h2>
+
+<p>
+
+Practice quizzes and improve your knowledge.
+
+</p>
+
+<a href="quiz.html">
+
+Take Quiz
+
+</a>
+
+</div>
+
+<div class="card">
+
+<h2>
+
+🎥 Videos
+
+</h2>
+
+<p>
+
+Watch educational videos.
+
+</p>
+
+<a href="video.html">
+
+Watch
+
+</a>
+
+</div>
+
+<div class="card">
+
+<h2>
+
+🎧 Audio
+
+</h2>
+
+<p>
+
+Listen anywhere.
+
+</p>
+
+<a href="audio.html">
+
+Listen
+
+</a>
+
+</div>
+
+<div class="card">
+
+<h2>
+
+⬇ Downloads
+
+</h2>
+
+<p>
+
+Download notes and PDFs.
+
+</p>
+
+<a href="download.html">
+
+Download
+
+</a>
+
+</div>
+
+<div class="card">
+
+<h2>
+
+📊 Dashboard
+
+</h2>
+
+<p>
+
+Track your learning progress.
+
+</p>
+
+<a href="studentdashboard.html">
+
+View
+
+</a>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>
+
+© 2026 EduAccess
+
+</p>
+
+</footer>
+
+<script>
+
+const student=
+JSON.parse(localStorage.getItem("loggedInUser"));
+
+if(student==null){
+
+window.location.href="login.html";
+
+}
+
+function logout(){
+
+localStorage.removeItem("loggedInUser");
+
+window.location.href="login.html";
+
+}
+
 </script>
 
 </body>
+
+</html>
 </html>
